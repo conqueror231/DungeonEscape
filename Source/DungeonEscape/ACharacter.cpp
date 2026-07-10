@@ -14,8 +14,15 @@ AACharacter::AACharacter()
 {
     PrimaryActorTick.bCanEverTick = true;
 
-    Body2 = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("Body2"));
-    Body2->SetupAttachment(RootComponent);
+    Body = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("Body"));
+    Body->SetupAttachment(RootComponent);
+
+    SpringArm = CreateDefaultSubobject<USpringArmComponent>(TEXT("SpringArm"));
+    SpringArm->SetupAttachment(RootComponent);
+
+
+
+
 }
 
 void AACharacter::Tick(float DeltaTime)
@@ -26,7 +33,6 @@ void AACharacter::Tick(float DeltaTime)
 void AACharacter::BeginPlay()
 {
     Super::BeginPlay();
-    SpringArm = FindComponentByClass<USpringArmComponent>();
     SpheresHandlerComponent = FindComponentByClass<UChildActorComponent>();
 
     if (APlayerController* PC = Cast<APlayerController>(GetController()))

@@ -48,8 +48,7 @@ protected:
 	float MaxPitch = 20.0f;
 
 	float CurrentPitch = 0.0f;
-	UPROPERTY()
-	class USpringArmComponent* SpringArm;
+	
 	UPROPERTY(EditDefaultsOnly,  Category= "Input")
 	UInputMappingContext* DefaultMappingContext;
 
@@ -71,7 +70,9 @@ protected:
 	UPROPERTY(EditDefaultsOnly, Category = "Input")
 	UInputAction* LookAction;
 	UPROPERTY(EditDefaultsOnly, Category = "Components")
-	class UStaticMeshComponent* Body2;
+	class UStaticMeshComponent* Body;
+	UPROPERTY(EditDefaultsOnly, Category = "Components")
+	class USpringArmComponent* SpringArm;
 
 	UPROPERTY(EditDefaultsOnly, Category = "MaterialsForSpheres")
 	class UMaterialInterface* QuasMaterial;
